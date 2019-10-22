@@ -1,4 +1,4 @@
-# cmpe-281 Project #1 3 tier web Application
+# cmpe-281 Project #1 a 3-tier web Application
 
 ## Author: Sergio Aguilar
 
