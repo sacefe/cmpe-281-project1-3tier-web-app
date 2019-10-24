@@ -4,6 +4,7 @@ import { createUser, getUser, updateUser, getAllUser, deleteUser, login } from '
 
 const ajax = axios.create({
     baseURL: 'http://localhost:3030',
+//    withCredentials: true,
     headers: {
         'Content-Type': 'application/json'
     }

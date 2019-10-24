@@ -5,7 +5,7 @@ export const getFile = (id) => {
 }
 
 export const getAllFiles = () => {
-    return ajax.get('/user-files');
+    return ajax.get('/user-files'); 
 }
 
 export const deleteFile = (id) => {

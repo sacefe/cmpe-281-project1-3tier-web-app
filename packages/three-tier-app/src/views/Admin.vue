@@ -1,35 +1,22 @@
 <template>
-  <b-container fluid class="mt-4">
-    <b-button class="mt-4" @click="toggleBusy">Toggle Busy State</b-button>
+  <b-container fluid class="mt-4 pl-4 pr-4">
+     <b-card class="mt-0 pl-4 pr-4" body-class="text-center" header-tag="nav">
+        <template v-slot:header>
+         <b-nav card-header tabs>
+            <b-nav-item to="/admin">Get Files</b-nav-item>
+            <b-nav-item to="/admin/update">Update</b-nav-item>
+            <b-nav-item to="/admin/upload">Upload</b-nav-item>
+            <b-nav-item class="ml-auto">Delete</b-nav-item>
+          </b-nav>
 
-    <b-table :items="items" :busy="isBusy" class="mt-4" outlined>
-      <template v-slot:table-busy>
-        <div class="text-center text-danger my-2">
-          <b-spinner class="align-middle"></b-spinner>
-          <strong>Loading...</strong>
-        </div>
-      </template>
-    </b-table>
-  </b-container>
+        </template>
+
+         <router-view />
+    </b-card> 
+</b-container>
+
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        isBusy: false,
-        items: [
-          { first_name: 'Dickerson', last_name: 'MacDonald', age: 40 },
-          { first_name: 'Larsen', last_name: 'Shaw', age: 21 },
-          { first_name: 'Geneva', last_name: 'Wilson', age: 89 },
-          { first_name: 'Jami', last_name: 'Carney', age: 38 }
-        ]
-      }
-    },
-    methods: {
-      toggleBusy() {
-        this.isBusy = !this.isBusy
-      }
-    }
-  }
+
 </script>

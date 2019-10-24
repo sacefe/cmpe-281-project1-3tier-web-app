@@ -26,7 +26,24 @@ export default new Router({
     {
         path: '/admin',
         name: 'admin',
-        component: () => import('@/views/Admin.vue')
+        component: () => import('@/views/Admin.vue'),
+        children: [
+            {
+                path: '/admin',
+                name: 'GetFiles',
+                component: () => import('@/components/admin/GetFiles.vue')
+            },
+            {
+                path: '/admin/upload',
+                name: 'UploadFile',
+                component: () => import('@/components/admin/UploadFile.vue')
+            },
+            {
+                path: '/admin/update',
+                name: 'UploadFile',
+                component: () => import('@/components/admin/UpdateFile.vue')
+            }
+        ]
       }
   ]
 })

@@ -2,7 +2,10 @@ import {ajax} from './index';
 
 export const createUser = (user) => {
     return ajax.post(`/users`, {
-        user
+        userFirstName: user.userFirstName,
+        userLastName: user.userLastName,
+        email: user.email,
+        password: user.password,
     });
 }
 
@@ -25,11 +28,14 @@ export const deleteUser = (id) => {
 }
 
 export const login = (user) => {
-
     return ajax.post('/authentication',{
         email: user.email,
         password: user.password,
         strategy: user.strategy
     });
 }
+
+// export const setToken = (token) => {
+//     return ajax.defaults.headers.common('Authorization' : 'Bearer ' + token;
+// }
 

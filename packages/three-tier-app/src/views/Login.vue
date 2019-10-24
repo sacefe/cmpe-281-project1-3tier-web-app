@@ -29,9 +29,8 @@
 <script>
 import {
     login,
-    
+    // setToken
     } from '@/services';
-
 
 export default {
    data: () => ({
@@ -40,23 +39,22 @@ export default {
             password: '',
             strategy: 'local'
             },
-
     }),
 
     methods: {
         async loginUser() {
-            console.log(this.user.email + " "  + this.user.password + "  " + this.user.strategy);
-            console.log(this.user);
             try{
                 const response = await login(this.user);
                 console.log(response.data);
+                this.$store.dispatch('auth/setLoggedIn', {isLoggedIn: true, user: response.data.user, accessToken: response.data.accessToken});
+                // const response2 = await setToken(response.data.accessToken);
+                // console.log(response2.data);
+                this.$router.push('admin');
             }catch(err) {
                 console.log(err.response);
             }
         },
     }
-
-
 }
 </script>
 
