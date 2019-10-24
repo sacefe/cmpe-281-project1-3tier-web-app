@@ -7,14 +7,14 @@
             <b-form>
                 <b-form-group 
                     label="Email address:">
-                    <b-form-input size="sm" type="email" required placeholder="Enter Email"></b-form-input>
+                    <b-form-input v-model="user.email" size="sm" type="email" required placeholder="Enter Email"></b-form-input>
                 </b-form-group>
                 <b-form-group 
                     label="Password:">
-                    <b-form-input size="sm" type="password" required placeholder="Enter Password"></b-form-input>
+                    <b-form-input v-model="user.password" size="sm" type="password" required placeholder="Enter Password"></b-form-input>
                 </b-form-group>
                 <div class="text-center">
-                    <b-btn variant="outline-primary" size="sm" class="btn-block">Sign In</b-btn>
+                    <b-btn @click="loginUser" variant="outline-primary" size="sm" class="btn-block">Sign In</b-btn>
                     <b-btn variant="primary" size="sm" class="btn-block" to="/register">Create an account</b-btn>
                     <b-btn variant="light" size="sm" class="btn-block shadow-sm"><img src="@/assets/icons/facebook-icon.svg" width="18" alt="facebook"> Sign in with Facebook</b-btn>
                     <b-btn variant="light" size="sm" class="btn-block shadow-sm"><img src="@/assets/icons/google-icon.svg" width="18" alt="google"> Sign in with Google</b-btn> 
@@ -24,6 +24,42 @@
     </b-container>
 
  </template>
+
+
+<script>
+import {
+    login,
+    
+    } from '@/services';
+
+
+export default {
+   data: () => ({
+      user: {
+            email: '',
+            password: '',
+            strategy: 'local'
+            },
+
+    }),
+
+    methods: {
+        async loginUser() {
+            console.log(this.user.email + " "  + this.user.password + "  " + this.user.strategy);
+            console.log(this.user);
+            try{
+                const response = await login(this.user);
+                console.log(response.data);
+            }catch(err) {
+                console.log(err.response);
+            }
+        },
+    }
+
+
+}
+</script>
+
 
 <style lang="scss">
     .login-card{

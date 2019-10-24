@@ -1,5 +1,5 @@
 <template>
-   <b-navbar toggleable="sm" variant="white" type="primary" class="shadow" fixed="top">
+   <b-navbar toggleable="sm" variant="white" type="primary" class="shadow">
        <b-container>
             <b-navbar-brand to="/" class= "text-primary">  
                  <fa :icon="['fab','aws']" />  CMPE-281 Project # 1
